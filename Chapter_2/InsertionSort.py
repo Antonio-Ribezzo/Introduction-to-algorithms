@@ -4,15 +4,26 @@ print(array_A)
 number = len(array_A)
 print(f"Number of items into array A: {number}")
 # Insertion Sort algorithm
-for item in range(len(array_A)):
-    key = array_A[item]
-#   insert array_A[item] into the sorted subarray A[0: item - 1]
-    j = item - 1
+def insertion_sort(arr):
+    ''' Insertion sort algorithm.
 
-    while j >= 0 and array_A[j] > key:
-        array_A[j + 1] = array_A[j]
-        j = j - 1
-    array_A[j + 1] = key
+    Parameters
+    ----------
+        arr: input array
+    '''
+    for item in range(len(arr)):
+        key = arr[item]
+    #   insert arr[item] into the sorted subarray arr[0: item - 1]
+        j = item - 1
 
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j = j - 1
+        arr[j + 1] = key
 
-print(f"This is the list sorted: {array_A}")
+    return arr
+
+array_sorted = insertion_sort(array_A)
+
+print(f"This is the list sorted: {array_sorted}")
+
